@@ -9,4 +9,4 @@ def home(request):
     return HttpResponse('Home page')
 
 def aboutpage(request):
-    return HttpResponse(request, "about.html")
+    return render(request, 'users/about.html')
