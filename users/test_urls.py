@@ -14,7 +14,7 @@ class HomepageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse(""))
-        self.assertTemplateUsed(response, "book/index.html")
+        self.assertTemplateUsed(response, "users/index.html")
 
     def test_template_content(self):
         response = self.client.get(reverse(""))
@@ -32,7 +32,7 @@ class AboutPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("aboutus"))
-        self.assertTemplateUsed(response, "book/about.html")
+        self.assertTemplateUsed(response, "users/about.html")
 
 class ConcertPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -45,7 +45,7 @@ class ConcertPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("concert"))
-        self.assertTemplateUsed(response, "book/concert.html")
+        self.assertTemplateUsed(response, "users/concert.html")
 
 class MusicalPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -58,7 +58,7 @@ class MusicalPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("musical"))
-        self.assertTemplateUsed(response, "book/musical.html")
+        self.assertTemplateUsed(response, "users/musical.html")
 
 class SportPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -71,7 +71,7 @@ class SportPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("sport"))
-        self.assertTemplateUsed(response, "book/sport.html")
+        self.assertTemplateUsed(response, "users/sport.html")
 
 class OtherPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -84,7 +84,7 @@ class OtherPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("other"))
-        self.assertTemplateUsed(response, "book/other.html")
+        self.assertTemplateUsed(response, "users/other.html")
 
 class CartPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -97,7 +97,7 @@ class CartPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("cart"))
-        self.assertTemplateUsed(response, "book/cart.html")
+        self.assertTemplateUsed(response, "users/cart.html")
 
 class CustomerLoginPageTest(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -110,7 +110,7 @@ class CustomerLoginPageTest(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("customerlogin"))
-        self.assertTemplateUsed(response, "book/customerlogin.html")
+        self.assertTemplateUsed(response, "users/customerlogin.html")
 
 class AdminLoginPageTest(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -123,7 +123,7 @@ class AdminLoginPageTest(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("adminlogin"))
-        self.assertTemplateUsed(response, "book/adminlogin.html")
+        self.assertTemplateUsed(response, "users/adminlogin.html")
 
 class CustomerLogoutPageTest(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -136,4 +136,4 @@ class CustomerLogoutPageTest(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("logout"))
-        self.assertTemplateUsed(response, "book/logout.html")
+        self.assertTemplateUsed(response, "users/logout.html")

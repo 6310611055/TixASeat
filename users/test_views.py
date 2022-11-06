@@ -52,6 +52,6 @@ class Test_list(TestCase):
 		response = client.post(reverse('list'))
 		
 		self.assertEquals(response.status_code, 200)
-		self.assertTemplateUsed(response, 'book/customersignup.html')
+		self.assertTemplateUsed(response, 'users/customersignup.html')
 	
 		
