@@ -26,7 +26,7 @@ SECRET_KEY = 's-g(qqr1)finvb9^idv=-w%04@&9p-qz*sw^-#arhqx%4qq*g#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://tixaseat.herokuapp.com/"]
 
 
 # Application definition
@@ -121,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[STATIC_DIR,]
+STATICFILES_DIRS=[os.path.join(BASE_DIR, "static") ]
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 
@@ -129,3 +129,8 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 # CSRF_TRUSTED_ORIGIN = ['localhost']
 
 LOGIN_REDIRECT_URL='/afterlogin'
+
+import django_heroku
+django_heroku.settings(locals())
+
+CSRF_TRUSTED_ORIGIN = ["127.0.0.1:8000"]
