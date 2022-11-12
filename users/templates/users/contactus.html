@@ -13,9 +13,9 @@
 <body style="background-color: #B3E5FC;">
 
   {%if request.user.is_authenticated%}
-    {% include "ecom/customer_navbar.html" %}
+    {% include "users/customer_navbar.html" %}
   {%else%}
-    {% include "ecom/navbar.html" %}
+    {% include "users/navbar.html" %}
   {%endif%}
 
   <center>
