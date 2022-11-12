@@ -17,6 +17,18 @@ class Customer(models.Model):
 
 
 class Product(models.Model):
+    CATEGORY =(
+        ('Concert', 'Concert'),
+        ('Musical', 'Musical'),
+        ('Sport', 'Sport'),
+        ('Other', 'Other')
+    )
+    STATUS=(
+        ('Available', 'Available'),
+        ('Sold', 'Sold')
+    )
+    # user=models.OneToOneField(User,on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, null=True, on_delete= models.SET_NULL)
     name=models.CharField(max_length=40)
     product_image= models.ImageField(upload_to='product_image/',null=True,blank=True)
     price = models.PositiveIntegerField()
@@ -25,16 +37,16 @@ class Product(models.Model):
     location=models.CharField(max_length=64, null=True)
     date=models.CharField(max_length=40, null=True)
     time=models.CharField(max_length=12, null=True)
+    category=models.CharField(max_length=50,null=True,choices=CATEGORY)
+    status=models.CharField(max_length=50,null=True,choices=STATUS, default='Available')
     def __str__(self):
-        return f'{self.name} Seat: {self.seat} Date: {self.date}'
+        return f'{self.name} Seat: {self.seat} Date: {self.date} Category: {self.category} Status: {self.status}'
 
 
 class Orders(models.Model):
     STATUS =(
         ('Pending','Pending'),
-        ('Order Confirmed','Order Confirmed'),
-        ('Out for Delivery','Out for Delivery'),
-        ('Delivered','Delivered'),
+        ('Successful','Successful'),
     )
     customer=models.ForeignKey('Customer', on_delete=models.CASCADE,null=True)
     product=models.ForeignKey('Product',on_delete=models.CASCADE,null=True)
