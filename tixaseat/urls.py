@@ -23,7 +23,7 @@ urlpatterns = [
     path('',views.home_view,name=''),
     path('afterlogin', views.afterlogin_view,name='afterlogin'),
     path('logout', LogoutView.as_view(template_name='users/logout.html'),name='logout'),
-    path('aboutus', views.aboutus_view),
+    path('aboutus', views.aboutus_view, name='aboutus'),
     path('contactus', views.contactus_view,name='contactus'),
     path('search', views.search_view,name='search'),
     path('send-feedback', views.send_feedback_view,name='send-feedback'),
@@ -47,7 +47,7 @@ urlpatterns = [
     path('update-order/<int:pk>', views.update_order_view,name='update-order'),
 
 
-    path('customersignup', views.customer_signup_view),
+    path('customersignup', views.customer_signup_view, name='customersignup'),
     path('customerlogin', LoginView.as_view(template_name='users/customerlogin.html'),name='customerlogin'),
     path('customer-home', views.customer_home_view,name='customer-home'),
     path('my-order', views.my_order_view,name='my-order'),
@@ -73,7 +73,8 @@ urlpatterns = [
     path('customer-concert', views.customer_concert_view, name='customer-concert'),
     path('customer-musical', views.customer_musical_view, name='customer-musical'),
     path('customer-sport', views.customer_sport_view, name='customer-sport'),
-    path('customer-other', views.customer_sport_view, name='customer-other'),
+    path('customer-other', views.customer_other_view, name='customer-other'),
+    path('upload-payment', views.upload_payment_view, name='upload-payment'),
 
 ]
 

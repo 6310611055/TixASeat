@@ -43,3 +43,9 @@ class ContactusForm(forms.Form):
     Name = forms.CharField(max_length=30)
     Email = forms.EmailField()
     Message = forms.CharField(max_length=500,widget=forms.Textarea(attrs={'rows': 3, 'cols': 30}))
+    
+#for customer confirm payment
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model=models.Payment
+        fields=['date', 'time', 'amount', 'paymentslip', 'last4', 'bank']

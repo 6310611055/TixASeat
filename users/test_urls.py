@@ -32,7 +32,7 @@ class AboutPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("aboutus"))
-        self.assertTemplateUsed(response, "users/about.html")
+        self.assertTemplateUsed(response, "users/aboutus.html")
 
 class ConcertPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -45,7 +45,7 @@ class ConcertPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("concert"))
-        self.assertTemplateUsed(response, "users/concert.html")
+        self.assertTemplateUsed(response, "users/index_concert.html")
 
 class MusicalPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -58,7 +58,7 @@ class MusicalPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("musical"))
-        self.assertTemplateUsed(response, "users/musical.html")
+        self.assertTemplateUsed(response, "users/index_musical.html")
 
 class SportPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -71,7 +71,7 @@ class SportPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("sport"))
-        self.assertTemplateUsed(response, "users/sport.html")
+        self.assertTemplateUsed(response, "users/index_sport.html")
 
 class OtherPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -84,7 +84,7 @@ class OtherPageTests(TestCase):
 
     def test_template_name_correct(self):  
         response = self.client.get(reverse("other"))
-        self.assertTemplateUsed(response, "users/other.html")
+        self.assertTemplateUsed(response, "users/index_other.html")
 
 class CartPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
@@ -137,3 +137,4 @@ class CustomerLogoutPageTest(TestCase):
     def test_template_name_correct(self):  
         response = self.client.get(reverse("logout"))
         self.assertTemplateUsed(response, "users/logout.html")
+        

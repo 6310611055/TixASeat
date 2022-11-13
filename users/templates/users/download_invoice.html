@@ -163,19 +163,18 @@
           <table>
             <tr>
               <td>
-                Product Image :<br>
-                 <img src="{% static product_image.url %}" alt="Profile Pic" height="40px" width="40px" /><br><br>
-                Product Price : <br>
+                Show's Name: <br>
+                {{productName}}<br>
+                Price : <br>
                 {{productPrice}}
               </td>
               <td>
-                Product Name: <br> {{productName}}<br><br>
-                Description: <br> {{productDescription}}
-                Seat: <br> {{productSeat}}
-                Date: <br> {{productDate}}
-                Time: <br> {{productTime}}
-                Location: <br> {{productLocation}}
-                
+                Description: {{productDescription}}<br>
+                Seat: {{productSeat}}<br>
+                Date: {{productDate}}<br>
+                Time: {{productTime}}<br>
+                Location: {{productLocation}}<br>
+
               </td>
 
             </tr>
@@ -205,6 +204,4 @@
     </table>
   </div>
 </body>
-
-
 </html>

@@ -24,7 +24,7 @@ def home_view(request):
     return render(request,'users/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
 
 
-#for showing login button for admin(by sumit)
+#for showing login button for admin
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -667,3 +667,95 @@ def customer_other_view(request):
     else:
         product_count_in_cart=0
     return render(request,'users/customer_other.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+
+# shipment address before placing order
+@login_required(login_url='customerlogin')
+def customer_address_view(request):
+    # this is for checking whether product is present in cart or not
+    # if there is no product in cart we will not show address form
+    product_in_cart=False
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        if product_ids != "":
+            product_in_cart=True
+    #for counter in cart
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        counter=product_ids.split('|')
+        product_count_in_cart=len(set(counter))
+    else:
+        product_count_in_cart=0
+
+    addressForm = forms.AddressForm()
+    if request.method == 'POST':
+        addressForm = forms.AddressForm(request.POST)
+        paymentForm = forms.PaymentForm(request.POST, request.FILES)
+        if paymentForm.is_valid():
+                payment = paymentForm.save()
+                user_instance = User.objects.get(pk=request.user.id)
+                payment.user = user_instance
+                payment.save()
+        if addressForm.is_valid():
+            # here we are taking address, email, mobile at time of order placement
+            # we are not taking it from customer account table because
+            # these thing can be changes
+            email = addressForm.cleaned_data['Email']
+            mobile=addressForm.cleaned_data['Mobile']
+            address = addressForm.cleaned_data['Address']
+            #for showing total price on payment page.....accessing id from cookies then fetching  price of product from db
+            total=0
+            if 'product_ids' in request.COOKIES:
+                product_ids = request.COOKIES['product_ids']
+                if product_ids != "":
+                    product_id_in_cart=product_ids.split('|')
+                    products=models.Product.objects.all().filter(id__in = product_id_in_cart)
+                    for p in products:
+                        total=total+p.price
+
+                    
+            response = render(request, 'users/payment.html',{'total':total, 'paymentForm':paymentForm})
+            response.set_cookie('email',email)
+            response.set_cookie('mobile',mobile)
+            response.set_cookie('address',address)
+            return response
+    return render(request,'users/customer_address.html',{'addressForm':addressForm,'product_in_cart':product_in_cart,'product_count_in_cart':product_count_in_cart})
+
+@login_required(login_url='customerlogin')
+@user_passes_test(is_customer)
+def download_invoice_view(request,orderID,productID):
+    order=models.Orders.objects.get(id=orderID)
+    product=models.Product.objects.get(id=productID)
+    mydict={
+        'orderDate':order.order_date,
+        'customerName':request.user,
+        'customerEmail':order.email,
+        'customerMobile':order.mobile,
+        'shipmentAddress':order.address,
+        'orderStatus':order.status,
+
+        'productName':product.name,
+        'productImage':product.product_image,
+        'productPrice':product.price,
+        'productDescription':product.description,
+        'productSeat':product.seat,
+        'productDate':product.date,
+        'productTime':product.time,
+        'productLocation':product.location,
+
+
+    }
+    return render_to_pdf('users/download_invoice.html',mydict)
+
+@login_required(login_url='customerlogin')
+@user_passes_test(is_customer)
+def upload_payment_view(request):
+    paymentForm=forms.PaymentForm()
+    if request.method=='POST':
+        paymentForm=forms.PaymentForm(request.POST, request.FILES)
+        if paymentForm.is_valid():
+            payment = paymentForm.save()
+            user_instance = User.objects.get(pk=request.user.id)
+            payment.user = user_instance
+            payment.save()
+        return HttpResponseRedirect('my-order')
+    return render(request,'users/upload_payment.html',{'paymentForm':paymentForm})

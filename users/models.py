@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator
 # Create your models here.
 class Customer(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
@@ -63,3 +64,24 @@ class Feedback(models.Model):
     date= models.DateField(auto_now_add=True,null=True)
     def __str__(self):
         return self.name
+
+class Payment(models.Model):
+    BANK=(
+        ('Kasikorn Bank', 'Kasikorn Bank'),
+        ('Bangkok Bank', 'Bangkok Bank'),
+        ('Krungthai Bank', 'Krungthai Bank'),
+        ('Krungsri Bank', 'Krungsri Bank'),
+        ('TTB Bank', 'TTB Bank'),
+        ('SCB Bank', 'SCB Bank'),
+        ('Other Bank form list', 'Other Bank form list'),
+    )
+    user=models.ForeignKey(User, null=True, on_delete= models.SET_NULL)
+    date=models.CharField(max_length=40, null=True)
+    time=models.CharField(max_length=12, null=True)
+    amount=models.PositiveIntegerField()
+    paymentslip=models.ImageField(upload_to='paymentslip/',null=True,blank=True)
+    last4=models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
+    bank=models.CharField(max_length=50,null=True,choices=BANK)
+
+    def __str__(self):
+        return f'{self.user} Amount: {self.amount} Date: {self.date} Time: {self.time} Bank: {self.bank}'

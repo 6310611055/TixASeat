@@ -24,7 +24,7 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 SECRET_KEY = 's-g(qqr1)finvb9^idv=-w%04@&9p-qz*sw^-#arhqx%4qq*g#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["https://tixaseat.herokuapp.com/"]
 

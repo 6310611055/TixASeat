@@ -148,7 +148,7 @@ body {
   /* ease-out */
   width: 660px;
   height: 100%;
-  background-color: #3fcd7f;
+  background-color: #b026ff;
   position: absolute;
   left: -659px;
 }
@@ -156,7 +156,7 @@ body {
 .h-bg .h-bg-inner {
   width: 50%;
   height: 100%;
-  background-color: #464646;
+  background-color: #000000;
 }
 
 .info-inner {
@@ -384,10 +384,7 @@ img {
   <br>
   <div class="container">
     <h1>Musical</h1>
-    <h3>Love y'all <datalist> Tag</h3>
-    <label for="programmingLanguages">
-        Musical Event:
-    </label>
+    <h3>Musical Event: <datalist> Tag</h3>
 
   {%if products%}
 
@@ -407,7 +404,7 @@ img {
                 <img class="img" src="{% static p.product_image.url %}" alt="product pic" height="300px" width="300px">
                 <div class="img-info">
                   <div class="info-inner">
-                    <span style="background-color:#3e454c; color:fbfbfb;"class="p-company">{{p.name}}</span>
+                    <span style="background-color:#000000; color:fbfbfb;"class="p-company">{{p.name}}</span>
 
                   </div>
                   <div class="a-size">Description: {{p.description}} Seat: {{p.seat}}, 
