@@ -9,5 +9,6 @@ tzdata==2022.5
 whitenoise==6.2.0
 django-widget-tweaks==1.4.8
 Pillow
+xhtml2pdf
 
 
