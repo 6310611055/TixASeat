@@ -3,6 +3,7 @@
 {% block content %}
 
 <head>
+  
   <style media="screen">
     body {
       background-color:#ffffff;
@@ -14,13 +15,15 @@
     .note {
       text-align: center;
       height: 80px;
-      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
-      color: #fff;
+      background: black;
+      color: #b026ff;
       font-weight: bold;
+      font-size: 22px;
       line-height: 80px;
     }
 
     .form-content {
+      text-align: center;
       padding: 5%;
       border: 1px solid #ced4da;
       margin-bottom: 2%;
@@ -33,21 +36,29 @@
     .btnSubmit {
       border: none;
       border-radius: 1.5rem;
+      font-size: 20px;
       padding: 1%;
       width: 20%;
       cursor: pointer;
-      background: #0062cc;
-      color: #fff;
+      background-color: black;
+      color: #b026ff;
     }
 
     .menu{
       top: 50px;
     }
+
+    .form-group {
+      text-align: left;
+      font-size: 18px;
+    }
+
   </style>
 
 
 </head>
-<br><br><br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
 <!------ update page for doctor by admin(sumit)  ---------->
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
@@ -56,25 +67,28 @@
       <div class="note">
         <p>EDIT PROFILE</p>
       </div>
-      <div class="form-content">
+      <div class="form-content ">
         <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
+            <div class="form-group col-md-6">
+              <label>First name</label>
               {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
             </div>            
-            <div class="form-group">
+            <div class="form-group col-md-6">
+              <label>Last name</label>
               {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12">
+              <label>Username</label>
               {% render_field userForm.username class="form-control" placeholder="Username" %}
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12">
+              <label>Password</label>
               {% render_field userForm.password class="form-control" placeholder="Password" %}
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12">
+              <label>Mobile</label>
               {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
             </div>
-          </div>
         </div>
         <button type="submit" class="btnSubmit">Edit</button>
       </div>

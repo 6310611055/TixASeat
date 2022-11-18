@@ -14,8 +14,9 @@
 .note {
       text-align: center;
       height: 80px;
-      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
-      color: #fff;
+      background: black;
+      color: #b026ff;
+      font-size: 20px;
       font-weight: bold;
       line-height: 80px;
     }
@@ -30,15 +31,44 @@
       border-radius: 1.5rem;
     }
 
-    .btnSubmit {
-      border: none;
+    .button {
+      display: inline-block;
       border-radius: 1.5rem;
-      padding: 1%;
-      width: 20%;
-      cursor: pointer;
-      background: #0062cc;
-      color: #fff;
+      background-color: black;
+      border: none;
+      color: #b026ff;
       text-align: center;
+      font-size: 18px;
+      padding: 20px;
+      width: 20%%;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    
+    .button:hover span {
+      padding-right: 25px;
+    }
+    
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
     }
 
     .menu {
@@ -50,7 +80,9 @@
 
 </style>
 <br><br>
-
+<br><br>
+<br><br>
+<br><br>
 <br><br>
 <div class="container register-form">
     <div class="form">
@@ -68,7 +100,9 @@
 
 
         </div>
-        <a href="/payment-success" class="btnSubmit" role="button">Continue</a>
+        <a href="/payment-success">
+        <button class="button" style="vertical-align:middle"><span>Continue </span></button>
+        </a>
       </div>
     </div>
   </div>
