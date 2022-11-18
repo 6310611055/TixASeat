@@ -19,7 +19,7 @@ class CustomerForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model=models.Product
-        fields=['name','price','description','seat','location','date', 'time', 'product_image']
+        fields=['name','price','description','product_image', 'seat', 'location', 'date', 'time', 'status', 'category']
 
 #address of shipment
 class AddressForm(forms.Form):
@@ -49,3 +49,9 @@ class PaymentForm(forms.ModelForm):
     class Meta:
         model=models.Payment
         fields=['date', 'time', 'amount', 'paymentslip', 'last4', 'bank']
+
+#for customer selling ticket
+class SellForm(forms.ModelForm):
+    class Meta:
+        model=models.Product
+        fields=['name','price','description','product_image', 'seat', 'location', 'date', 'time', 'category']
