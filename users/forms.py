@@ -55,3 +55,10 @@ class SellForm(forms.ModelForm):
     class Meta:
         model=models.Product
         fields=['name','price','description','product_image', 'seat', 'location', 'date', 'time', 'category']
+
+#for updating status of ticket
+class StatusForm(forms.ModelForm):
+    class Meta:
+        model=models.Product
+        fields=['status']
+        

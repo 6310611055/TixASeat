@@ -1,0 +1,88 @@
+{% extends 'users/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+    .float{
+	position:fixed;
+	width:70px;
+	height:70px;
+	bottom:60px;
+	right:60px;
+	background-color:red;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 3px 3px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+  </style>
+</head>
+
+
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Payment Checking - Tix A Seat</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Amount</th>
+          <th>Payment Slip</th>
+          <th>Last 4 digit</th>
+          <th>Transfer From Bank</th>
+          <th>Update Payment Status</th>
+          <th>Update Product Status</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for p in payments %}
+  {% if p %}
+
+      <tr>
+        <td> {{p.user}}</td>
+        <td>{{p.date}}</td>
+        <td>{{p.time}}</td>
+        <td>{{p.amount}}</td>
+        <td> <a href="{% static p.paymentslip.url %}" ><img src="{% static p.paymentslip.url %}" alt="Slip" height="40px" width="40px"/></a></td>
+        <td>{{p.last4}}</td>
+        <td>{{p.bank}}</td>
+        <td><a class="btn btn-primary btn-xs" href="/admin-view-booking"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-primary btn-xs" href="/admin-products"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-payment' p.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+      {%else%}
+      <br><br><br>
+      <h1>no products</h1>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock content %}

@@ -76,5 +76,7 @@ urlpatterns = [
     path('customer-other', views.customer_other_view, name='customer-other'),
     path('upload-payment', views.upload_payment_view, name='upload-payment'),
 
+    path('admin-payment', views.admin_payment_check_view, name='admin-payment'),
+    path('delete-payment/<int:pk>', views.delete_payment_view,name='delete-payment'),
 ]
 

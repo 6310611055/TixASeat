@@ -759,3 +759,14 @@ def upload_payment_view(request):
             payment.save()
         return HttpResponseRedirect('my-order')
     return render(request,'users/upload_payment.html',{'paymentForm':paymentForm})
+
+@login_required(login_url='adminlogin')
+def admin_payment_check_view(request):
+    payments=models.Payment.objects.all()
+    return render(request,'users/admin_payment_check.html',{'payments':payments})
+
+@login_required(login_url='adminlogin')
+def delete_payment_view(request,pk):
+    payment=models.Payment.objects.get(id=pk)
+    payment.delete()
+    return redirect('admin-payment')
