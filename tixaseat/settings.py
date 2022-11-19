@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -130,10 +131,9 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 
 LOGIN_REDIRECT_URL='/afterlogin'
 
-import django_heroku
+
 django_heroku.settings(locals())
 
 CSRF_TRUSTED_ORIGIN = [
     "127.0.0.1:8000",
     "https://6310520066-improved-xylophone-559gjjxj7q5hv77q-8000.preview.app.github.dev",]
-    
