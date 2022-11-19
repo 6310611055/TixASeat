@@ -4,264 +4,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
 
+
   <style media="screen">
     body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     body,
 html {
   height: 100%;
-}
-body {
-  background-color: #f7f7f7;
-}
-
-#navbar {
-  background-color: #000000;
-  color: black;
-  z-index: 10000;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-}
-
-.row1 {
-  padding-top: 10px;
-  padding-right: 50px
-}
-
-.row2 {
-  padding-bottom: 20px
-}
-
-.navbar-input {
-  padding: 11px 16px;
-  border-radius: 2px 0 0 2px;
-  border: 0 none;
-  outline: 0 none;
-  font-size: 15px
-}
-
-.navbar-button {
-  background-color: #b026ff;
-  border: 1px solid #b026ff;
-  border-radius: 0 2px 2px 0;
-  color: #565656;
-  padding: 10px 0;
-  height: 43px;
-  cursor: pointer
-}
-
-.cart-button {
-  /* background-color: #bfbfbf; */
-  background-color: #b026ff;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0 hsla(0, 0%, 100%, .2);
-  padding: 10px 0;
-  text-align: center;
-  height: 41px;
-  border-radius: 2px;
-  font-weight: 500;
-  width: 120px;
-  display: inline-block;
-  color: #FFFFFF;
-  text-decoration: none;
-  color: inherit;
-  border: none;
-  outline: none
-}
-
-.cart-button:hover {
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer
-}
-
-.cart-svg {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  margin-right: 8px
-}
-
-.item-number {
-  border-radius: 3px;
-  background-color: rgba(0, 0, 0, .1);
-  height: 20px;
-  padding: 3px 6px;
-  font-weight: 500;
-  display: inline-block;
-  color: #fff;
-  line-height: 12px;
-  margin-left: 10px
-}
-
-.upper-links {
-  display: inline-block;
-  padding: 0 11px;
-  line-height: 23px;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 0;
-  color: inherit;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  font-size: 12px
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 0px
-}
-
-.dropdown:hover {
-  background-color: #fff
-}
-
-.dropdown:hover .links {
-  color: #000
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block
-}
-
-.dropdown .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  display: none;
-  background-color: #fff;
-  color: #333;
-  left: 0px;
-  border: 0;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px -3px #555454;
-  margin: 0.5px;
-  padding: 0;
-}
-
-.links {
-  color: #fff;
-  text-decoration: none
-}
-
-.links:hover {
-  color: #fff;
-  text-decoration: none
-}
-
-.profile-links {
-  font-size: 12px;
-  font-family: 'Roboto', sans-serif; 
-  box-sizing: border-box;
-  border-radius: 5px;
-  display: block;
-  padding: 0 11px;
-  line-height: 23px
-}
-
-.profile-li {
-  padding-top: 2px
-}
-
-.largenav {
-  display: none
-}
-
-.smallnav {
-  display: block
-}
-
-.smallsearch {
-  margin-left: 15px;
-  margin-top: 15px
-}
-
-.menu {
-  cursor: pointer
-}
-
-.site-footer {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  left: 0;
-  background-color:#000000;
-  padding:45px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  color:#737373;
-
-}
-
-.site-footer hr {
-  border-top-color:#bbb;
-  opacity:0.5
-}
-
-.site-footer hr.small {
-  margin:20px 0
-}
-
-.site-footer h6 {
-  color:#fff;
-  font-size:16px;
-  text-transform:uppercase;
-  margin-top:5px;
-  letter-spacing:2px
-}
-
-.site-footer a {
-  color:#737373;
-}
-
-.site-footer a:hover {
-  color:#3366cc;  
-  text-decoration:none;
-}
-
-.footer-links {
-  padding-left:0;
-  list-style:none
-}
-
-.footer-links li {
-  display:block
-}
-.footer-links a {
-  color:#737373
-}
-.footer-links a:active,.footer-links a:focus,.footer-links a:hover {
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links.inline li {
-  display:inline-block
-}
-.site-footer .social-icons {
-  text-align:right
-}
-.site-footer .social-icons a {
-  width:40px;
-  height:40px;
-  line-height:40px;
-  margin-left:6px;
-  margin-right:0;
-  border-radius:100%;
-  background-color:#33353d
-}
-
-@media screen and (min-width: 768px) {
-.largenav {
-  display: block
-}
-
-.smallnav {
-  display: none
-}
-
-.smallsearch {
-  margin: 0px
-}
 }
 
 .d-flex {
@@ -331,7 +79,7 @@ body {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  color: #b026ff; 
+  color: #b026ff;
 }
 
 .el-wrapper:hover .add-to-cart {
@@ -436,14 +184,14 @@ body {
 .info-inner .p-name {
   font-family: 'PT Sans', sans-serif;
   font-size: 18px;
-  color: #0000000;
+  color: #000000;
 }
 
 .info-inner .p-company {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   /* text-transform: uppercase; */
-  color: #0000000;
+  color: #000000;
 }
 
 .a-size {
@@ -533,7 +281,7 @@ body {
 
 .cart .add-to-cart .txt {
   font-size: 12px;
-  color: #fff; 
+  color: #fff;
   letter-spacing: 0.045em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -547,7 +295,7 @@ body {
   float: left;
   width: 33.33%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 420px;
 }
 
 /* Clear floats after the columns */
@@ -667,61 +415,66 @@ img {
   </div>
 </div>
 
+
+  {%if products %}
   <h3 style="text-align:center; color:#3E454C;">{{word}}</h3>
-  <br>
   <div class="container">
     <h1>Recommended Event</h1>
     <h3>Choose Your Favourite Event: <datalist> Tag</h3>
-  {%if products%}
-
   <!-- products data start -->
+
   <div class="row">
+    {% for p in products %}
+    {% if p.status == 'Available' %}
+    <!-- card1 -->
+    <div class="column">
+    <div class="container page-wrapper" style="width: 450px;">
+      <div class="page-inner">
+        <div class="row">
+          <div class="el-wrapper">
+            <div class="box-up">
+              <img class="img" src="{% static p.product_image.url %}" alt="product pic" height="300px" width="300px">
+              <div class="img-info">
+                <div class="info-inner">
+                  <span style="background-color:#3e454c; color:fbfbfb;"class="p-company">{{p.name}}</span>
 
-      {% for p in products %}
-      <!-- card1 -->
-      <div class="column">
-      <div class="container page-wrapper" style="width: 450px;">
-        <div class="page-inner">
-          <div class="row">
-            <div class="el-wrapper">
-              <div class="box-up">
-                <img class="img" src="{% static p.product_image.url %}" alt="product pic" height="300px" width="300px">
-                <div class="img-info">
-                  <div class="info-inner">
-                    <span style="background-color:#000000; color:fbfbfb;"class="p-company">{{p.name}}</span>
-
-                  </div>
-                  <div class="a-size">Description: {{p.description}} Seat: {{p.seat}}, 
-                    Location: {{p.location}} {{p.date}} {{p.time}}</div>
                 </div>
+                <div class="a-size">Description: {{p.description}} Seat: {{p.seat}}, 
+                  Location: {{p.location}} {{p.date}} {{p.time}}</div>
+              </div>
+            </div>
+
+            <div class="box-down">
+              <div class="h-bg">
+                <div class="h-bg-inner"></div>
               </div>
 
-              <div class="box-down">
-                <div class="h-bg">
-                  <div class="h-bg-inner"></div>
-                </div>
-
-                <a class="cart" href="{% url 'add-to-cart' p.id  %}">
-                  <span class="price">${{p.price}}</span>
-                  <span class="add-to-cart">
-                    <span class="txt"><i class="fa fa-shopping-cart"></i> Add To Cart</span>
-                  </span>
-                </a>
-              </div>
+              <a class="cart" href="{% url 'add-to-cart' p.id  %}">
+                <span class="price">${{p.price}}</span>
+                <span class="add-to-cart">
+                  <span class="txt"><i class="fa fa-shopping-cart"></i> Add To Cart</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      </div>
+    </div>
+    </div>
 <!-- card1 end -->
 
-{% if forloop.counter|divisibleby:"3" %}
-    </div>
-    <div class="row">
-          <br><br><br><br><br>
+
 {% endif %}
 
-  {% endfor %}
+{% if p.status == 'Available'|divisibleby:"3" %}
+  </div>
+    <div class="row">
+    <br><br>
+  </div>
+  
+{% endif %}
+
+{% endfor %}
 </div>
 <!-- products data end -->
 
@@ -731,9 +484,7 @@ img {
 {%endif%}
 
 <br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
+
 
 <div class="container">
   <h1>Upcoming Event</h1>
@@ -747,6 +498,7 @@ img {
     <div class="row">
   
         {% for p in products|slice:":3" %}
+        {% if p.status == 'Available' %}
         <!-- card1 -->
         <div class="column">
         <div class="container page-wrapper" style="width: 450px;">
@@ -783,6 +535,9 @@ img {
         </div>
         </div>
   <!-- card1 end -->
+  {% endif %}
+
+
   {% if forloop.counter|divisibleby:"3" %}
       </div>
   
@@ -796,6 +551,7 @@ img {
   {%else%}
   <h3 style="text-align:center; color:#3E454C;">Nothing Found</h3>
   {%endif%}
+
 
 <script>
     {%if messages %}

@@ -294,7 +294,7 @@ body {
   float: left;
   width: 33.33%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 420px;
 }
 
 /* Clear floats after the columns */
@@ -434,7 +434,7 @@ img {
 
 <!-- card1 end -->
 
-{% if forloop.counter|divisibleby:"3" %}
+{% if p.status == 'Available'|divisibleby:"3" %}
     </div>
     <div class="row">
           <br><br><br><br><br>

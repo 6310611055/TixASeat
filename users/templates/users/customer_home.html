@@ -295,7 +295,7 @@ body {
   float: left;
   width: 33.33%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 420px;
 }
 
 /* Clear floats after the columns */
@@ -416,59 +416,65 @@ img {
 </div>
 
 
-  {%if products%}
+  {%if products %}
   <h3 style="text-align:center; color:#3E454C;">{{word}}</h3>
-  <br>
   <div class="container">
     <h1>Recommended Event</h1>
     <h3>Choose Your Favourite Event: <datalist> Tag</h3>
   <!-- products data start -->
+
   <div class="row">
+    {% for p in products %}
+    {% if p.status == 'Available' %}
+    <!-- card1 -->
+    <div class="column">
+    <div class="container page-wrapper" style="width: 450px;">
+      <div class="page-inner">
+        <div class="row">
+          <div class="el-wrapper">
+            <div class="box-up">
+              <img class="img" src="{% static p.product_image.url %}" alt="product pic" height="300px" width="300px">
+              <div class="img-info">
+                <div class="info-inner">
+                  <span style="background-color:#3e454c; color:fbfbfb;"class="p-company">{{p.name}}</span>
 
-      {% for p in products %}
-      <!-- card1 -->
-      <div class="column">
-      <div class="container page-wrapper" style="width: 450px;">
-        <div class="page-inner">
-          <div class="row">
-            <div class="el-wrapper">
-              <div class="box-up">
-                <img class="img" src="{% static p.product_image.url %}" alt="product pic" height="300px" width="300px">
-                <div class="img-info">
-                  <div class="info-inner">
-                    <span style="background-color:#000000; color:fbfbfb;"class="p-company">{{p.name}}</span>
-
-                  </div>
-                  <div class="a-size">Description: {{p.description}} Seat: {{p.seat}}, 
-                    Location: {{p.location}} {{p.date}} {{p.time}}</div>
                 </div>
+                <div class="a-size">Description: {{p.description}} Seat: {{p.seat}}, 
+                  Location: {{p.location}} {{p.date}} {{p.time}}</div>
+              </div>
+            </div>
+
+            <div class="box-down">
+              <div class="h-bg">
+                <div class="h-bg-inner"></div>
               </div>
 
-              <div class="box-down">
-                <div class="h-bg">
-                  <div class="h-bg-inner"></div>
-                </div>
-
-                <a class="cart" href="{% url 'add-to-cart' p.id  %}">
-                  <span class="price">${{p.price}}</span>
-                  <span class="add-to-cart">
-                    <span class="txt"><i class="fa fa-shopping-cart"></i> Add To Cart</span>
-                  </span>
-                </a>
-              </div>
+              <a class="cart" href="{% url 'add-to-cart' p.id  %}">
+                <span class="price">${{p.price}}</span>
+                <span class="add-to-cart">
+                  <span class="txt"><i class="fa fa-shopping-cart"></i> Add To Cart</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      </div>
-<!-- card1 end -->
-{% if forloop.counter|divisibleby:"3" %}
     </div>
-    <div class="row">
-          <br><br><br><br><br>
+    </div>
+<!-- card1 end -->
+
+
 {% endif %}
 
-  {% endfor %}
+{% if p.status == 'Available'|divisibleby:"3" %}
+  </div>
+    <div class="row">
+    <br><br>
+  </div>
+  
+{% endif %}
+
+{% endfor %}
 </div>
 <!-- products data end -->
 
@@ -478,13 +484,11 @@ img {
 {%endif%}
 
 <br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
+
 
 <div class="container">
   <h1>Upcoming Event</h1>
-  <h3>Choose Your Favourite Event:<datalist> Tag</h3>
+  <h3>Choose Your Favourite Event: <datalist> Tag</h3>
 
   {%if products%}
   <h3 style="text-align:center; color:#3E454C;">{{word}}</h3>
@@ -494,6 +498,7 @@ img {
     <div class="row">
   
         {% for p in products|slice:":3" %}
+        {% if p.status == 'Available' %}
         <!-- card1 -->
         <div class="column">
         <div class="container page-wrapper" style="width: 450px;">
@@ -530,6 +535,9 @@ img {
         </div>
         </div>
   <!-- card1 end -->
+  {% endif %}
+
+
   {% if forloop.counter|divisibleby:"3" %}
       </div>
   
@@ -543,6 +551,7 @@ img {
   {%else%}
   <h3 style="text-align:center; color:#3E454C;">Nothing Found</h3>
   {%endif%}
+
 
 <script>
     {%if messages %}
