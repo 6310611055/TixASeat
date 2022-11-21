@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,reverse
+from django.shortcuts import render,redirect,reverse, get_object_or_404
 from . import forms,models
 from django.http import HttpResponseRedirect,HttpResponse
 from django.core.mail import send_mail
@@ -7,21 +7,30 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.models import User
+from users.models import Payment
 # user = User.objects.get(id=user_id)
 
-# staffprofile.user = user
+# staffprofile.user = user 
 
 def home_view(request):
-    products=models.Product.objects.all()
-    if 'product_ids' in request.COOKIES:
-        product_ids = request.COOKIES['product_ids']
-        counter=product_ids.split('|')
-        product_count_in_cart=len(set(counter))
-    else:
-        product_count_in_cart=0
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
-    return render(request,'users/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+    products= models.Product.objects.all()
+    product_count_in_cart = 0
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        # if(product_ids and len(product_ids) >= 0): return render("users/index.html", status=400)
+        counter=product_ids.split('|')
+        product_count_in_cart=len(set(counter))
+    return render(request,'users/index.html', {
+        'products':products,
+        'product_count_in_cart':product_count_in_cart
+        }
+    )
+    # return render(request, {
+    #     'products': products,
+    #     'product_count_in_cart': 0
+    # })
 
 
 #for showing login button for admin
@@ -767,6 +776,7 @@ def admin_payment_check_view(request):
 
 @login_required(login_url='adminlogin')
 def delete_payment_view(request,pk):
-    payment=models.Payment.objects.get(id=pk)
+    payment = get_object_or_404(Payment, id=pk)
+    # payment=models.Payment.objects.get(id=pk)
     payment.delete()
     return redirect('admin-payment')

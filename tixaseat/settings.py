@@ -136,4 +136,5 @@ django_heroku.settings(locals())
 
 CSRF_TRUSTED_ORIGIN = [
     "127.0.0.1:8000",
-    "https://6310520066-improved-xylophone-559gjjxj7q5hv77q-8000.preview.app.github.dev",]
+    "https://6310520066-improved-xylophone-559gjjxj7q5hv77q-8000.preview.app.github.dev",
+    "https://tixaseat.herokuapp.com/"]

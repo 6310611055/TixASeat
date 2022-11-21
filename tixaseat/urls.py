@@ -18,9 +18,11 @@ from django.urls import path
 from users import views
 from django.contrib.auth.views import LoginView,LogoutView
 
+app_name = "tixaseat"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home_view,name=''),
+    path('',views.home_view,name='homePage'),
     path('afterlogin', views.afterlogin_view,name='afterlogin'),
     path('logout', LogoutView.as_view(template_name='users/logout.html'),name='logout'),
     path('aboutus', views.aboutus_view, name='aboutus'),
