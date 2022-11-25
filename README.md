@@ -46,11 +46,13 @@ You have to install code editor for edit code of this project. eg,
 2. Activate virtual environment
   + On Mac or Linux
     ```sh
+    python3 -m venv .venv
     source .venv/bin/activate
     ```
     some requirement may be not instsall successful on mac please read recommendtaion in terminal.
   + On Windows
     ```sh
+    python -m venv .venv
     source .venv/Scripts/activate
     ```
 
