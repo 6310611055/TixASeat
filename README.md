@@ -36,7 +36,7 @@ You have to install code editor for edit code of this project. eg,
 ### Installation
 1. Clone this repository or Download ZIP file [here.](https://github.com/6310611055/TixASeat/archive/refs/heads/main.zip)
     ```sh
-    git clone 6310611055/TixASeat TixASeat
+    git clone https://github.com/6310611055/TixASeat.git TixASeat
     ```
 2. Open the dirctory with Your code editor
 
@@ -67,14 +67,20 @@ You have to install code editor for edit code of this project. eg,
     ```
 4. Move to project folder in Terminal. Then run following Commands :
     ```sh
+    python3 manage.py createsuperuser
     python3 manage.py makemigrations
     python3 manage.py migrate
     python3 manage.py runserver
     ```
-5. Now enter following URL in Your Browser Installed On Your Pc
+5. Now enter following URL in Your Browser Installed On Your PC
     ```sh
     http://127.0.0.1:8000/
     ```
     
  ## Disclaimer
 Data in database is demo data.
+
+## DEMO
+Video demonstration [here.](https://youtu.be/HUUbPCcmr3k)
+
+You can see how it works by this video (Thai Language).
